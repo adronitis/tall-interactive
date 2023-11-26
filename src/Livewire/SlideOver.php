@@ -36,11 +36,18 @@ class SlideOver extends Actionable implements HasForms
 
     public string $actionableId;
 
+    public array $listOfStates;
+
     public string $actionableType = 'slideOver';
 
     public function mount(string $id): void
     {
         $this->actionableId = $id;
+    }
+
+    public function processState(array $data): void
+    {
+        $this->listOfStates[] = $data;
     }
 
     public function render(): View
